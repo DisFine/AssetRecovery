@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import './style.css'
+
 function Front() {
-  const [count, setCount] = useState(0)
+  
   const handleLostClick = () => {
     window.location.href = '/lost';
   };
