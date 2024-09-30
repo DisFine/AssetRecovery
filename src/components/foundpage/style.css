@@ -1,0 +1,151 @@
+
+.FoundTitle {
+    display: flex;
+    width: 100%;
+    font-family: "Syncopate", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 35px;
+}
+
+.FoundTitle span {
+    font-family: "Syncopate", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.Img {
+    width: 100%;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 14px;
+    background-color: lightgray;
+}
+
+.PSelect {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 43px;
+    margin-top: 20px;
+    margin-left: 38.5%;
+    border: 2px solid black;
+    border-radius: 30px;
+    background-color: #FFBDFC;
+}
+
+.IName {
+    width: 100%;
+    height: 75px;
+    margin-top: 8%;
+}
+
+.IName label {
+    padding: 0px;
+    margin: 3px;
+    margin-left: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.IName .NameField {
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+
+.IFound {
+    width: 100%;
+    height: 75px;
+}
+
+.IFound label {
+    padding: 0px;
+    margin: 3px;
+    margin-left: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.IFound .FoundField {
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+
+.PhoneNumber {
+    width: 100%;
+    height: 75px;
+}
+
+.PhoneNumber label {
+    padding: 0px;
+    margin: 3px;
+    margin-left: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.PhoneNumber .NumberField {
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+
+.description {
+    width: 100%;
+    height: 15vh;
+    margin-top: 7%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 12px;
+    background-color: white;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.description::placeholder {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.PostBtn {
+    width: 32%;
+    height: 42px;
+    margin-top: 20px;
+    margin-left: 35%;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 14px;
+    background-color: #FFBDFC;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 8px 8px 0px -4px rgba(0,0,0,1);
+    box-shadow: 8px 8px 0px -4px rgba(0,0,0,1)
+}
+
+.PostBtn:hover {
+    background-color: red;
+}
