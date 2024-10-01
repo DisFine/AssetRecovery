@@ -1,15 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import Front from './components/frontpage/front.jsx'
-import Found from './components/foundpage/found.jsx'
-import Lost from './components/lostpage/Lost.jsx'
-import FoundItems from './components/foundItems/fItems.jsx'
-import LostItems from './components/lostItems/lItems.jsx'
-import Layout from './components/PageLayout.jsx'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom"
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import Front from "./components/frontpage/front.jsx";
+import Found from "./components/foundpage/found.jsx";
+import Lost from "./components/lostpage/Lost.jsx";
+import FoundItems from "./components/foundItems/fItems.jsx";
+import LostItems from "./components/lostItems/lItems.jsx";
+import Layout from "./components/PageLayout.jsx";
+import SignIn from "./components/SignIn/SignIn.jsx";
+import SignUp from "./components/SignUp/SignUp.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +28,14 @@ const router = createBrowserRouter([
         element: <Lost />,
       },
       {
+        path: "SignIn",
+        element: <SignIn />,
+      },
+      {
+        path: "SignUp",
+        element: <SignUp />,
+      },
+      {
         path: "foundItems",
         element: <FoundItems />,
       },
@@ -36,12 +43,12 @@ const router = createBrowserRouter([
         path: "lostItems",
         element: <LostItems />,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>
-)
+);
