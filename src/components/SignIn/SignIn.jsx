@@ -1,7 +1,17 @@
 import { useState, useEffect } from "react";
 import "./SignInstyles.css";
 
+async function signin_function(email, password) {
+  if (email === "") {
+    alert("email cannot be empty.");
+  } else if (password === "") {
+    alert("Password cannot be empty.");
+  }
+}
+
 function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div className="outercontainer">
       <div className="innercontainer">
@@ -12,17 +22,40 @@ function SignIn() {
             <label htmlFor="email" className="label">
               E-mail
             </label>
-            <input type="email" id="email" className="textfield" />
+            <input
+              type="email"
+              id="email"
+              className="textfield"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
           </div>
 
           <div className="textwithlabel">
             <label htmlFor="password" className="label">
               Password
             </label>
-            <input type="password" id="password" className="textfield" />
+            <input
+              type="password"
+              id="password"
+              className="textfield"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
           </div>
 
-          <button type="button">Login</button>
+          <button
+            type="button"
+            onClick={() => {
+              signin_function(email, password);
+            }}
+          >
+            Login
+          </button>
           <p
             onClick={() => {
               window.location.href = "/SignUp";

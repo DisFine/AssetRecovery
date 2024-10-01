@@ -1,7 +1,23 @@
 import { useState, useEffect } from "react";
 import "../SignIn/SignInstyles.css";
 
+async function signup_function(email, password, confirmpassword) {
+  if (email === "") {
+    alert("email cannot be empty.");
+  } else if (password === "") {
+    alert("Password cannot be empty.");
+  } else if (confirmpassword === "") {
+    alert("Confirm Password cannot be empty.");
+  } else if (password !== confirmpassword) {
+    alert("Confirm password doesn't match password.");
+  }
+}
+
 function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+
   return (
     <div className="outercontainer">
       <div className="innercontainer">
@@ -12,24 +28,55 @@ function SignUp() {
             <label htmlFor="email" className="label">
               E-mail
             </label>
-            <input type="email" id="email" className="textfield" />
+            <input
+              type="email"
+              id="email"
+              className="textfield"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
           </div>
 
           <div className="textwithlabel">
             <label htmlFor="password" className="label">
               Password
             </label>
-            <input type="password" id="password" className="textfield" />
+            <input
+              type="password"
+              id="password"
+              className="textfield"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
           </div>
 
           <div className="textwithlabel">
             <label htmlFor="confirmpassword" className="label">
               Confirm Password
             </label>
-            <input type="password" id="confirmpassword" className="textfield" />
+            <input
+              type="password"
+              id="confirmpassword"
+              className="textfield"
+              value={confirmpassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+              }}
+            />
           </div>
 
-          <button type="button">Sign Up</button>
+          <button
+            type="button"
+            onClick={() => {
+              signup_function(email, password, confirmpassword);
+            }}
+          >
+            Sign Up
+          </button>
         </form>
       </div>
       <div className="googlecontainer">
