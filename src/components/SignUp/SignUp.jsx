@@ -13,7 +13,7 @@ async function signup_function(email, password, confirmpassword) {
   }
 }
 
-function SignUp() {
+function SignUp({ supabase }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");

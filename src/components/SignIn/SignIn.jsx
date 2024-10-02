@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./SignInstyles.css";
 
 async function signin_function(email, password) {
@@ -9,9 +10,25 @@ async function signin_function(email, password) {
   }
 }
 
-function SignIn() {
+async function isauthenticated({ supabase }) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  return user;
+}
+
+function RedirecttoLost({ supabase }) {
+  if (!isauthenticated(supabase)) {
+    return <Link to="/Lost" />;
+  } else {
+    return null;
+  }
+}
+function SignIn(supabase) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   return (
     <div className="outercontainer">
       <div className="innercontainer">
@@ -56,13 +73,9 @@ function SignIn() {
           >
             Login
           </button>
-          <p
-            onClick={() => {
-              window.location.href = "/SignUp";
-            }}
-          >
-            Sign Up instead
-          </p>
+          <Link to="/SignUp">
+            <p>Sign Up instead</p>
+          </Link>
         </form>
       </div>
       <div className="googlecontainer">
@@ -131,6 +144,7 @@ function SignIn() {
           <p>Login with Microsoft</p>
         </div>
       </div>
+      <RedirecttoLost supabase={supabase} />
     </div>
   );
 }

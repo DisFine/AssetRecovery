@@ -1,19 +1,7 @@
 import "./style.css";
+import { Link } from "react-router-dom";
 
-function Front() {
-  const handleLostClick = () => {
-    window.location.href = "/SignIn";
-  };
-  const handleFoundClick = () => {
-    window.location.href = "/found";
-  };
-  const handleLItemsClick = () => {
-    window.location.href = "/lostItems";
-  };
-  const handleFItemsClick = () => {
-    window.location.href = "/foundItems";
-  };
-
+function Front({ supabase }) {
   return (
     <>
       <div className="obj">
@@ -31,19 +19,19 @@ function Front() {
           </div>
         </div>
         <div className="Buttons">
-          <button className="btn" onClick={handleLostClick}>
-            I Lost Something
-          </button>
-          <button className="btn" onClick={handleFoundClick}>
-            I Found Something
-          </button>
+          <Link to="/SignIn">
+            <button className="btn">I Lost Something</button>
+          </Link>
+          <Link to="/Found">
+            <button className="btn">I Found Something</button>
+          </Link>
           <div className="ButtonsIndex">
-            <button className="btn" onClick={handleLItemsClick}>
-              Lost Items
-            </button>
-            <button className="btn" onClick={handleFItemsClick}>
-              Found Items
-            </button>
+            <Link to="/LostItems">
+              <button className="btn">Lost Items</button>
+            </Link>
+            <Link to="/FoundItems">
+              <button className="btn">Found Items</button>
+            </Link>
           </div>
         </div>
       </div>
