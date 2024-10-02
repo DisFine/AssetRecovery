@@ -1,29 +1,34 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
-import { supabase } from "../createClient";
+
+async function fetchLostItems(supabase, setItems) {
+  let { data: Lost_Items, error } = await supabase
+    .from("Lost_Items")
+    .select("*");
+
+  if (error) {
+    console.error("Error fetching lost items:", error);
+    return;
+  }
+  setItems(Lost_Items);
+}
 
 function LostItems({ supabase }) {
-  const [users, setUsers] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  async function fetchUsers() {
-    const { data } = await supabase.from("lost_items").select("*");
-    setUsers(data);
-    console.log(data);
-  }
+    fetchLostItems(supabase, setItems);
+  }, [supabase]);
 
   return (
     <>
       <div className="LI-Title">LOST ITEMS</div>
       <div className="LI-List">
-        {users.map((item, index) => (
+        {items.map((item, index) => (
           <div className="LI" key={index}>
             <div className="info">
-              <p className="Item-Name">{item.item_name}</p>
-              <p className="Location">Last Seen at:{item.location}</p>
+              <p className="Item-Name">{item.Item_name}</p>
+              <p className="Location">Last Seen at:{item.Lost_at}</p>
             </div>
             <div className="BDesign"></div>
             <div className="LII"></div>

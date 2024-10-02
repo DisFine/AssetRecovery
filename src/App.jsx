@@ -22,7 +22,7 @@ function App() {
       <Route path="/LostItems" element={<LostItems supabase={supabase} />} />
       <Route path="/FoundItems" element={<FoundItems supabase={supabase} />} />
       <Route path="/Found" element={<FoundPage supabase={supabase} />} />
-      <Route path="/" element={<Front supabase={supabase} />} />
+      <Route exact path="/" element={<Front supabase={supabase} />} />
     </Routes>
   );
 }

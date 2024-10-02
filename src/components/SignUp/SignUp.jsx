@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import "../SignIn/SignInstyles.css";
+import { useNavigate } from "react-router-dom";
 
-async function signup_function(email, password, confirmpassword) {
+async function signup_function(
+  supabase,
+  email,
+  password,
+  confirmpassword,
+  navigate
+) {
   if (email === "") {
     alert("email cannot be empty.");
   } else if (password === "") {
@@ -11,9 +18,23 @@ async function signup_function(email, password, confirmpassword) {
   } else if (password !== confirmpassword) {
     alert("Confirm password doesn't match password.");
   }
+
+  let { data, error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+  });
+
+  if (error) {
+    alert("Something went wrong.\n");
+    console.log(error);
+  } else {
+    navigate("/Lost");
+  }
 }
 
 function SignUp({ supabase }) {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
@@ -72,7 +93,13 @@ function SignUp({ supabase }) {
           <button
             type="button"
             onClick={() => {
-              signup_function(email, password, confirmpassword);
+              signup_function(
+                supabase,
+                email,
+                password,
+                confirmpassword,
+                navigate
+              );
             }}
           >
             Sign Up

@@ -1,16 +1,25 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignInstyles.css";
 
-async function signin_function(email, password) {
+async function signin_function(supabase, email, password, navigate) {
   if (email === "") {
     alert("email cannot be empty.");
   } else if (password === "") {
     alert("Password cannot be empty.");
   }
+  let { data, error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password,
+  });
+  if (error) {
+    alert("Wrong Email or password.");
+  } else {
+    navigate("/Lost");
+  }
 }
 
-async function isauthenticated({ supabase }) {
+async function isauthenticated(supabase) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -18,14 +27,19 @@ async function isauthenticated({ supabase }) {
   return user;
 }
 
-function RedirecttoLost({ supabase }) {
-  if (!isauthenticated(supabase)) {
-    return <Link to="/Lost" />;
-  } else {
-    return null;
-  }
-}
-function SignIn(supabase) {
+function SignIn({ supabase }) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function checkAuth() {
+      const user = await isauthenticated(supabase);
+      if (user) {
+        navigate("/Lost");
+      }
+    }
+    checkAuth();
+  }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -68,7 +82,7 @@ function SignIn(supabase) {
           <button
             type="button"
             onClick={() => {
-              signin_function(email, password);
+              signin_function(supabase, email, password, navigate);
             }}
           >
             Login
@@ -144,7 +158,6 @@ function SignIn(supabase) {
           <p>Login with Microsoft</p>
         </div>
       </div>
-      <RedirecttoLost supabase={supabase} />
     </div>
   );
 }

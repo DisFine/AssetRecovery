@@ -1,6 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 
 async function isauthenticated(supabase) {
   const {
@@ -10,15 +12,20 @@ async function isauthenticated(supabase) {
   return user;
 }
 
-function RedirecttoLogin({ supabase }) {
-  if (!isauthenticated(supabase)) {
-    return <Link to="/SignIn" />;
-  } else {
-    return null;
-  }
-}
-
 function Lost({ supabase }) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isauthenticated(supabase)) {
+      console.log("inside lost\n");
+      navigate("/");
+    }
+  }, [navigate, supabase]);
+
+  window.addEventListener("popstate", function (event) {
+    window.location.href = "/";
+  });
+
   return (
     <>
       <div className="lostTitle">
@@ -44,7 +51,6 @@ function Lost({ supabase }) {
         placeholder="Description"
       ></textarea>
       <button className="PostBtn">Post</button>
-      <RedirecttoLogin supabase={supabase} />
     </>
   );
 }
