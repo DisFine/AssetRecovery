@@ -7,7 +7,7 @@ async function fetchLostItems(supabase, setItems) {
     .select("*");
 
   if (error) {
-    console.error("Error fetching lost items:", error);
+    console.log(error);
     return;
   }
   setItems(Lost_Items);
