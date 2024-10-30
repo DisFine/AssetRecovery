@@ -4,7 +4,7 @@ import "../style.css";
 
 import { Link, useNavigate } from "react-router-dom";
 
-async function isauthenticated(supabase) {
+async function isAuthenticated(supabase) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -16,7 +16,7 @@ function Lost({ supabase }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isauthenticated(supabase)) {
+    if (!isAuthenticated(supabase)) {
       console.log("inside lost\n");
       navigate("/");
     }

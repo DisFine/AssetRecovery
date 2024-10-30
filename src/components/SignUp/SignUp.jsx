@@ -6,16 +6,16 @@ async function signup_function(
   supabase,
   email,
   password,
-  confirmpassword,
+  confirmPassword,
   navigate
 ) {
   if (email === "") {
     alert("email cannot be empty.");
   } else if (password === "") {
     alert("Password cannot be empty.");
-  } else if (confirmpassword === "") {
+  } else if (confirmPassword === "") {
     alert("Confirm Password cannot be empty.");
-  } else if (password !== confirmpassword) {
+  } else if (password !== confirmPassword) {
     alert("Confirm password doesn't match password.");
   }
 
@@ -37,15 +37,15 @@ function SignUp({ supabase }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmpassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
-    <div className="outercontainer">
-      <div className="innercontainer">
+    <div className="outerContainer">
+      <div className="innerContainer">
         <h1>Sign Up</h1>
 
         <form>
-          <div className="textwithlabel">
+          <div className="textWithLabel">
             <label htmlFor="email" className="label">
               E-mail
             </label>
@@ -60,7 +60,7 @@ function SignUp({ supabase }) {
             />
           </div>
 
-          <div className="textwithlabel">
+          <div className="textWithLabel">
             <label htmlFor="password" className="label">
               Password
             </label>
@@ -75,15 +75,15 @@ function SignUp({ supabase }) {
             />
           </div>
 
-          <div className="textwithlabel">
-            <label htmlFor="confirmpassword" className="label">
+          <div className="textWithLabel">
+            <label htmlFor="confirmPassword" className="label">
               Confirm Password
             </label>
             <input
               type="password"
-              id="confirmpassword"
+              id="confirmPassword"
               className="textfield"
-              value={confirmpassword}
+              value={confirmPassword}
               onChange={(e) => {
                 setConfirmPassword(e.target.value);
               }}
@@ -97,7 +97,7 @@ function SignUp({ supabase }) {
                 supabase,
                 email,
                 password,
-                confirmpassword,
+                confirmPassword,
                 navigate
               );
             }}
@@ -106,8 +106,8 @@ function SignUp({ supabase }) {
           </button>
         </form>
       </div>
-      <div className="googlecontainer">
-        <div className="logintype">
+      <div className="googleContainer">
+        <div className="loginType">
           <i>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +137,7 @@ function SignUp({ supabase }) {
           </i>
           <p>Login with google</p>
         </div>
-        <div className="logintype">
+        <div className="loginType">
           <i>
             <svg
               xmlns="http://www.w3.org/2000/svg"

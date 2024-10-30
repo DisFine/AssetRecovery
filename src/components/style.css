@@ -17,7 +17,7 @@ body{
 .Screen{
     border: 3px rgb(0, 0, 0) solid;
     padding: 2px 18px 18px 18px;
-    margin: 10%;
+    margin: 5%;
     border-radius: 17px;
     background-color: white;
     -webkit-box-shadow: 
@@ -31,7 +31,7 @@ body{
         0px 10px 0px -4px  rgba(0,0,0,1);
 }
 
-.IPbtn {
+.IPBtn {
     padding: 0px 15px 2px 15px;
     display: flex;
     column-gap: 3px;
@@ -593,7 +593,7 @@ body{
     background-color: red;
 }
 
-.outercontainer{
+.outerContainer{
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -602,7 +602,7 @@ body{
     align-items: center;
 }
 
-.innercontainer{
+.innerContainer{
 
     border: 3px black solid;
     border-radius: 15px;
@@ -619,7 +619,7 @@ body{
     box-shadow: 0px 6px 0px -1px rgba(0,0,0,1);
 }
 
-.innercontainer h1{
+.innerContainer h1{
     font-family: "Syncopate";
     font-size: 36px;
     text-align: center;
@@ -642,7 +642,7 @@ form{
     gap: 30px;
 }
 
-.textwithlabel{
+.textWithLabel{
     width: 100%;
 }
 .textfield{
@@ -685,7 +685,7 @@ form button:active{
 box-shadow: none;
 }
 
-.googlecontainer{
+.googleContainer{
     width: 100%;
     background-color: white;
     border: 3px black dashed;
@@ -695,11 +695,11 @@ box-shadow: none;
     justify-content: space-between;
 }
 
-.logintype{
+.loginType{
     display: flex;
     gap: 3px;
 }
-.logintype p{
+.loginType p{
     background-color: #FFBDFC;
     border-radius: 20px;
     padding: 0 12px;
@@ -710,10 +710,10 @@ box-shadow: none;
     line-height: 30px;
 }
 
-.logintype i{
+.loginType i{
     font-size: 7px;
 }
-.logintype i svg{
+.loginType i svg{
     width: 30px;
     height: auto;
     display: inline-block;

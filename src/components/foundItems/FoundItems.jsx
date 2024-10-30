@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../style.css";
 
-async function fetchfounditems(supabase, setFoundItems) {
+async function fetchFoundItems(supabase, setFoundItems) {
   let { data: Found_items, error } = await supabase
     .from("Found_items")
     .select("*");
@@ -17,7 +17,7 @@ function FoundItems({ supabase }) {
   const [items, setFoundItems] = useState([]);
 
   useEffect(() => {
-    fetchfounditems(supabase, setFoundItems);
+    fetchFoundItems(supabase, setFoundItems);
   }, [supabase]);
   return (
     <>
