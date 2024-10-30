@@ -602,8 +602,6 @@ box-shadow: none;
 }
 
 .Adjustment{
-    display: flex;
-    justify-content: normal;
     gap: 0px;
 }
 
