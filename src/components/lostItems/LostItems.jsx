@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import "../style.css";
 
 async function fetchLostItems(supabase, setItems) {
   let { data: Lost_Items, error } = await supabase

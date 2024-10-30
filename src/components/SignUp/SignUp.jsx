@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../SignIn/SignInstyles.css";
+import "../style.css";
 import { useNavigate } from "react-router-dom";
 
 async function signup_function(
