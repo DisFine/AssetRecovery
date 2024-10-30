@@ -602,6 +602,9 @@ box-shadow: none;
 }
 
 .Adjustment{
+    display: flex;
+    height: 85vh;
+    justify-content: normal;
     gap: 0px;
 }
 
