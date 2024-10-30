@@ -478,6 +478,7 @@ body{
 
 .outerContainer{
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -603,7 +604,6 @@ box-shadow: none;
 
 .Adjustment{
     display: flex;
-    height: 85vh;
     justify-content: normal;
     gap: 0px;
 }
