@@ -22,18 +22,20 @@ function LostItems({ supabase }) {
 
   return (
     <>
-      <div className="LI-Title">LOST ITEMS</div>
-      <div className="LI-List">
-        {items.map((item, index) => (
-          <div className="LI" key={index}>
-            <div className="info">
-              <p className="Item-Name">{item.Item_name}</p>
-              <p className="Location">Last Seen at:{item.Lost_at}</p>
+      <div className="outerContainer Adjustment">
+        <div className="LI-Title">LOST ITEMS</div>
+        <div className="LI-List">
+          {items.map((item, index) => (
+            <div className="LI" key={index}>
+              <div className="info">
+                <p className="Item-Name">{item.Item_name}</p>
+                <p className="Location">Last Seen at:{item.Lost_at}</p>
+              </div>
+              <div className="BDesign"></div>
+              <div className="LII"></div>
             </div>
-            <div className="BDesign"></div>
-            <div className="LII"></div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );

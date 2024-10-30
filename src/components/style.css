@@ -84,12 +84,6 @@ body{
     font-style: normal;
 }
 
-.obj{
-    display: flex;
-    flex-direction: column; 
-    align-items: center;   
-}
-
 .Buttons {
     display:flex;
     flex-direction: column; 
@@ -98,6 +92,7 @@ body{
     background-color: white;
     padding: 75px 11px;
     margin: 10%;
+    margin-top: 2%;
     margin-bottom: 2%;
     border-radius: 17px;
     -webkit-box-shadow: 
@@ -150,10 +145,8 @@ body{
 }
 
 .FI-Title {
-    display: flex;
     font-size: 35px;
     padding: 5px 2px;
-    justify-content: space-evenly;
     font-family: "Syncopate", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -162,7 +155,7 @@ body{
 .FI-List {
     border: 3px solid black;
     width: 100%;
-    height: 90vh;
+    height: 85vh;
     background-color: white;
     border-radius: 12px;
     padding: 16px 5px 16px 5px;
@@ -223,6 +216,7 @@ body{
 .FoundTitle {
     display: flex;
     width: 100%;
+    margin-top: 2px;
     font-family: "Syncopate", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -252,7 +246,6 @@ body{
     width: 20%;
     height: 43px;
     margin-top: 20px;
-    margin-left: 38.5%;
     border: 2px solid black;
     border-radius: 30px;
     background-color: #FFBDFC;
@@ -333,7 +326,7 @@ body{
 
 .description {
     width: 100%;
-    height: 15vh;
+    height: 14.5vh;
     margin-top: 7%;
     border: 2px solid black;
     border-radius: 10px;
@@ -353,7 +346,6 @@ body{
     width: 32%;
     height: 42px;
     margin-top: 20px;
-    margin-left: 35%;
     padding: 5px;
     border: 2px solid black;
     border-radius: 14px;
@@ -460,51 +452,6 @@ body{
     font-style: normal;
 }
 
-.Img {
-    width: 100%;
-    height: 20vh;
-    border: 1px solid black;
-    border-radius: 14px;
-    background-color: lightgray;
-}
-
-.PSelect {
-    display: flex;
-    justify-content: center;
-    width: 20%;
-    height: 43px;
-    margin-top: 20px;
-    margin-left: 38.5%;
-    border: 2px solid black;
-    border-radius: 30px;
-    background-color: #FFBDFC;
-}
-
-.IName {
-    width: 100%;
-    height: 75px;
-    margin-top: 8%;
-}
-
-.IName label {
-    padding: 0px;
-    margin: 3px;
-    margin-left: 10px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.IName .NameField {
-    width: 100%;
-    height: 40px;
-    background-color: white;
-    border-radius: 10px;
-    border: 2px solid black;
-    padding-left: 12px;
-    box-sizing: border-box;
-}
-
 .ILost {
     width: 100%;
     height: 75px;
@@ -527,70 +474,6 @@ body{
     border: 2px solid black;
     padding-left: 12px;
     box-sizing: border-box;
-}
-
-.PhoneNumber {
-    width: 100%;
-    height: 75px;
-}
-
-.PhoneNumber label {
-    padding: 0px;
-    margin: 3px;
-    margin-left: 10px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.PhoneNumber .NumberField {
-    width: 100%;
-    height: 40px;
-    background-color: white;
-    border-radius: 10px;
-    border: 2px solid black;
-    padding-left: 12px;
-    box-sizing: border-box;
-}
-
-.description {
-    width: 100%;
-    height: 15vh;
-    margin-top: 7%;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 12px;
-    background-color: white;
-    box-sizing: border-box;
-    resize: none;
-}
-
-.description::placeholder {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.PostBtn {
-    width: 32%;
-    height: 42px;
-    margin-top: 20px;
-    margin-left: 35%;
-    padding: 5px;
-    border: 2px solid black;
-    border-radius: 14px;
-    background-color: #FFBDFC;
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
-    -moz-box-shadow: 8px 8px 0px -4px rgba(0,0,0,1);
-    box-shadow: 8px 8px 0px -4px rgba(0,0,0,1)
-}
-
-.PostBtn:hover {
-    background-color: red;
 }
 
 .outerContainer{
@@ -666,7 +549,6 @@ box-shadow: 3px 2px 0px -1px rgba(0,0,0,1);
 }
 
 form button{
-    
     background-color: #FFBDFC;
     text-align: center;
     font-family: "poppins";
@@ -719,7 +601,10 @@ box-shadow: none;
     display: inline-block;
 }
 
-
-
+.Adjustment{
+    display: flex;
+    justify-content: normal;
+    gap: 0px;
+}
 
 

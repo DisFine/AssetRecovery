@@ -28,6 +28,7 @@ function Lost({ supabase }) {
 
   return (
     <>
+    <div className="outerContainer Adjustment">
       <div className="lostTitle">
         Add Lost ‎‎ <span>Item</span>
       </div>
@@ -51,6 +52,7 @@ function Lost({ supabase }) {
         placeholder="Description"
       ></textarea>
       <button className="PostBtn">Post</button>
+    </div>
     </>
   );
 }
