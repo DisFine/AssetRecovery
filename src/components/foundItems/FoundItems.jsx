@@ -21,18 +21,20 @@ function FoundItems({ supabase }) {
   }, [supabase]);
   return (
     <>
-      <div className="FI-Title">FOUND ITEMS</div>
-      <div className="FI-List">
-        {items.map((item, index) => (
-          <div className="FI" key={index}>
-            <div className="info">
-              <p className="Item-Name">{item.item_name}</p>
-              <p className="Location">Found at:{item.found_at}</p>
-            </div>
-            <div className="BDesign"></div>
-            <div className="FII"></div>
-          </div>
-        ))}
+      <div className="outerContainer Adjustment">
+        <div className="FI-Title">FOUND ITEMS</div>
+          <div className="FI-List">
+            {items.map((item, index) => (
+              <div className="FI" key={index}>
+                <div className="info">
+                  <p className="Item-Name">{item.item_name}</p>
+                  <p className="Location">Found at:{item.found_at}</p>
+                </div>
+                <div className="BDesign"></div>
+                <div className="FII"></div>
+              </div>
+            ))}
+        </div>
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Front({ supabase }) {
   return (
     <>
-      <div className="obj">
+      <div className="outerContainer Adjustment">
         <div className="Screen">
           <div className="IPBtn">
             <div className="dot1"></div>
