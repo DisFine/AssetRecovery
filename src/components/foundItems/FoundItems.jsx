@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./style.css";
+import "../style.css";
 
 async function fetchfounditems(supabase, setFoundItems) {
   let { data: Found_items, error } = await supabase

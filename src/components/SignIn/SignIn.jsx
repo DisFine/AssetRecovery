@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./SignInstyles.css";
+import "../style.css";
 
 async function signin_function(supabase, email, password, navigate) {
   if (email === "") {
