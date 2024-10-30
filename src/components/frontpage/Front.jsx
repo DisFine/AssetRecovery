@@ -6,7 +6,7 @@ function Front({ supabase }) {
     <>
       <div className="obj">
         <div className="Screen">
-          <div className="IPbtn">
+          <div className="IPBtn">
             <div className="dot1"></div>
             <div className="dot2"></div>
             <div className="dot3"></div>

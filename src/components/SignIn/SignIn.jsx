@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../style.css";
 
-async function signin_function(supabase, email, password, navigate) {
+async function signIn_function(supabase, email, password, navigate) {
   if (email === "") {
     alert("email cannot be empty.");
   } else if (password === "") {
@@ -19,7 +19,7 @@ async function signin_function(supabase, email, password, navigate) {
   }
 }
 
-async function isauthenticated(supabase) {
+async function isAuthenticated(supabase) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -32,7 +32,7 @@ function SignIn({ supabase }) {
 
   useEffect(() => {
     async function checkAuth() {
-      const user = await isauthenticated(supabase);
+      const user = await isAuthenticated(supabase);
       if (user) {
         navigate("/Lost");
       }
@@ -44,12 +44,12 @@ function SignIn({ supabase }) {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="outercontainer">
-      <div className="innercontainer">
+    <div className="outerContainer">
+      <div className="innerContainer">
         <h1>Login</h1>
 
         <form>
-          <div className="textwithlabel">
+          <div className="textWithLabel">
             <label htmlFor="email" className="label">
               E-mail
             </label>
@@ -64,7 +64,7 @@ function SignIn({ supabase }) {
             />
           </div>
 
-          <div className="textwithlabel">
+          <div className="textWithLabel">
             <label htmlFor="password" className="label">
               Password
             </label>
@@ -82,7 +82,7 @@ function SignIn({ supabase }) {
           <button
             type="button"
             onClick={() => {
-              signin_function(supabase, email, password, navigate);
+              signIn_function(supabase, email, password, navigate);
             }}
           >
             Login
@@ -92,8 +92,8 @@ function SignIn({ supabase }) {
           </Link>
         </form>
       </div>
-      <div className="googlecontainer">
-        <div className="logintype">
+      <div className="googleContainer">
+        <div className="loginType">
           <i>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ function SignIn({ supabase }) {
           </i>
           <p>Login with google</p>
         </div>
-        <div className="logintype">
+        <div className="loginType">
           <i>
             <svg
               xmlns="http://www.w3.org/2000/svg"
