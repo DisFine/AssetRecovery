@@ -15,11 +15,17 @@ async function isAuthenticated(supabase) {
 function Lost({ supabase }) {
   const navigate = useNavigate();
   const [selectedIcon, setSelectedIcon] = useState("camera");
-
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    if (!isAuthenticated(supabase)) {
-      navigate("/");
+    async function fetchUser() {
+      const user = await isAuthenticated(supabase);
+      if (!user) {
+        navigate("/");
+      } else {
+        setUser(user);
+      }
     }
+    fetchUser();
   }, [navigate, supabase]);
 
   window.addEventListener("popstate", function (event) {
@@ -116,6 +122,7 @@ function Lost({ supabase }) {
                   Description: description,
                   item_image_path: "no",
                   still_lost: true,
+                  user_id: user.id,
                 },
               ])
               .select();
