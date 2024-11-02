@@ -32,7 +32,9 @@ function LostItems({ supabase }) {
                 <p className="Location">Last Seen at:{item.Lost_at}</p>
               </div>
               <div className="BDesign"></div>
-              <div className="LII"></div>
+              <div className="LII">
+                <img src={item.item_image_path} alt="" className="itemimage" />
+              </div>
             </div>
           ))}
         </div>
