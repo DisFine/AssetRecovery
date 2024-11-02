@@ -14,6 +14,7 @@ function FoundPage({ supabase }) {
   const [imageurl, setimageurl] = useState(
     "https://th.bing.com/th/id/OIP.EZrb_W935zKQpTgcBTAXBgHaEc?w=296&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
   );
+  const [file, setfile] = useState(null);
   return (
     <>
       <div className="outerContainer Adjustment">
@@ -44,27 +45,9 @@ function FoundPage({ supabase }) {
             id="galleryinput"
             style={{ display: "none" }}
             onChange={async (e) => {
-              const file = e.target.files[0];
-              const filename = file.name;
-              let Path;
-              const { data, error } = await supabase.storage
-                .from("Items")
-                .upload("Found_items/" + filename, file, {
-                  cacheControl: "3600",
-                  upsert: false,
-                });
-              if (error) {
-                console.error("error : ", error);
-              } else {
-                console.log(data.path);
-                Path = data.path;
-              }
-              const { data: dataurl } = supabase.storage
-                .from("Items")
-                .getPublicUrl(Path);
-              console.log("dataurl: ", dataurl.publicUrl);
-              console.log("path : ", Path);
-              setimageurl(dataurl.publicUrl);
+              setfile(e.target.files[0]);
+              const tempUrl = URL.createObjectURL(e.target.files[0]);
+              setimageurl(tempUrl);
             }}
           ></input>
         </div>
@@ -119,6 +102,31 @@ function FoundPage({ supabase }) {
         <button
           className="PostBtn"
           onClick={async () => {
+            const filename = file.name;
+            let Path;
+
+            const { data: datapath, error: errorpath } = await supabase.storage
+              .from("Items")
+              .upload("Found_items/" + filename, file, {
+                cacheControl: "3600",
+                upsert: false,
+              });
+
+            if (errorpath) {
+              console.error("error : ", errorpath);
+            } else {
+              console.log(datapath.path);
+              Path = datapath.path;
+            }
+
+            const { data: dataurl } = supabase.storage
+              .from("Items")
+              .getPublicUrl(Path);
+
+            console.log("dataurl: ", dataurl.publicUrl);
+            console.log("path : ", Path);
+
+            setimageurl(dataurl.publicUrl);
             const { data, error } = await supabase
               .from("Found_items")
               .insert([
