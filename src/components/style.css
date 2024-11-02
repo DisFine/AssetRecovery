@@ -642,6 +642,11 @@ box-shadow: none;
     column-gap: 7px;
 }
 
+.itemimage{
+    height: 100%;
+    width: 100%;
+}
+
 @media only screen and (max-width: 1000px){
     .BScreen h2 {
         font-size: 42px;

@@ -11,13 +11,18 @@ function FoundPage({ supabase }) {
   const [foundat, setfoundat] = useState("");
   const [phonenumber, setphonenumber] = useState("");
   const [description, setdescription] = useState("");
+  const [imageurl, setimageurl] = useState(
+    "https://th.bing.com/th/id/OIP.EZrb_W935zKQpTgcBTAXBgHaEc?w=296&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+  );
   return (
     <>
       <div className="outerContainer Adjustment">
         <div className="FoundTitle">
           Add Found ‎‎ <span>Item</span>
         </div>
-        <div className="Img"></div>
+        <div className="Img">
+          <img src={imageurl} alt="" className="itemimage" />
+        </div>
         <div className="PSelect">
           <i
             className={`fa fa-camera icon ${
@@ -29,8 +34,39 @@ function FoundPage({ supabase }) {
             className={`fa fa-image icon ${
               selectedIcon === "image" ? "selected" : ""
             }`}
-            onClick={() => handleSelect("image")}
+            onClick={() => {
+              handleSelect("image");
+              document.getElementById("galleryinput").click();
+            }}
           ></i>
+          <input
+            type="file"
+            id="galleryinput"
+            style={{ display: "none" }}
+            onChange={async (e) => {
+              const file = e.target.files[0];
+              const filename = file.name;
+              let Path;
+              const { data, error } = await supabase.storage
+                .from("Items")
+                .upload("Found_items/" + filename, file, {
+                  cacheControl: "3600",
+                  upsert: false,
+                });
+              if (error) {
+                console.error("error : ", error);
+              } else {
+                console.log(data.path);
+                Path = data.path;
+              }
+              const { data: dataurl } = supabase.storage
+                .from("Items")
+                .getPublicUrl(Path);
+              console.log("dataurl: ", dataurl.publicUrl);
+              console.log("path : ", Path);
+              setimageurl(dataurl.publicUrl);
+            }}
+          ></input>
         </div>
         <div className="IName">
           <label htmlFor="IName">Item Name</label>
@@ -90,7 +126,7 @@ function FoundPage({ supabase }) {
                   item_name: itemname,
                   found_at: foundat,
                   description: description,
-                  found_item_url: "no",
+                  found_item_url: imageurl,
                 },
               ])
               .select();
