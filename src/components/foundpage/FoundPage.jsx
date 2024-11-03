@@ -29,8 +29,23 @@ function FoundPage({ supabase }) {
             className={`fa fa-camera icon ${
               selectedIcon === "camera" ? "selected" : ""
             }`}
-            onClick={() => handleSelect("camera")}
+            onClick={() => {
+              handleSelect("camera");
+              document.getElementById("camerainput").click();
+            }}
           ></i>
+          <input
+            type="file"
+            accept="image/*"
+            capture="camera"
+            id="camerainput"
+            style={{ display: "none" }}
+            onChange={async (e) => {
+              setfile(e.target.files[0]);
+              const tempUrl = URL.createObjectURL(e.target.files[0]);
+              setimageurl(tempUrl);
+            }}
+          ></input>
           <i
             className={`fa fa-image icon ${
               selectedIcon === "image" ? "selected" : ""
@@ -42,6 +57,7 @@ function FoundPage({ supabase }) {
           ></i>
           <input
             type="file"
+            accept="image/*"
             id="galleryinput"
             style={{ display: "none" }}
             onChange={async (e) => {
