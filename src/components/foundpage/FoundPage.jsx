@@ -150,7 +150,7 @@ function FoundPage({ supabase }) {
                   item_name: itemname,
                   found_at: foundat,
                   description: description,
-                  found_item_url: imageurl,
+                  img_url: imageurl,
                 },
               ])
               .select();
