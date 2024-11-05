@@ -180,7 +180,7 @@ function Lost({ supabase }) {
                   Item_name: itemname,
                   Lost_at: lostat,
                   Description: description,
-                  item_image_path: imageurl,
+                  img_url: imageurl,
                   still_lost: true,
                   user_id: user.id,
                 },
