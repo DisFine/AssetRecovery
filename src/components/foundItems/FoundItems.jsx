@@ -13,6 +13,7 @@ async function fetchFoundItems(supabase, setFoundItems) {
   }
   setFoundItems(Found_items);
 }
+
 function FoundItems({ supabase }) {
   const [items, setFoundItems] = useState([]);
 
