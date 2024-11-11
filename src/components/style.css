@@ -158,6 +158,7 @@ body{
     width: 100%;
     height: calc(var(--vh, 1vh)* 85);
     background-color: white;
+    overflow: auto;
     border-radius: 12px;
     padding: 16px 5px 16px 5px;
 }
