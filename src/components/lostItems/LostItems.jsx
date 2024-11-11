@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style.css";
+import { Link } from "react-router-dom";
 
 async function fetchLostItems(supabase, setItems) {
   let { data: Lost_Items, error } = await supabase
@@ -26,14 +27,18 @@ function LostItems({ supabase }) {
         <div className="LI-Title">LOST ITEMS</div>
         <div className="LI-List">
           {items.map((item, index) => (
-            <div className="LI" key={index}>
-              <div className="info">
-                <p className="Item-Name">{item.Item_name}</p>
-                <p className="Location">Last Seen at:{item.Lost_at}</p>
+            <Link to={`/ItemPage/lost/${item.id}`}>
+              <div className="LI" key={index}>
+                <div className="info">
+                  <p className="Item-Name">{item.Item_name}</p>
+                  <p className="Location">Last Seen at:{item.Lost_at}</p>
+                </div>
+                <div className="BDesign"></div>
+                <div className="LII">
+                  <img src={item.img_url} alt="" className="itemimage" />
+                </div>
               </div>
-              <div className="BDesign"></div>
-              <div className="LII"></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
