@@ -234,12 +234,16 @@ body{
     font-style: normal;
 }
 
-.Img {
+.outerContainer .Img {
     width: 100%;
     height: 20vh;
     border: 1px solid black;
     border-radius: 14px;
     background-color: lightgray;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
 }
 
 .PSelect {
@@ -304,12 +308,12 @@ body{
     box-sizing: border-box;
 }
 
-.PhoneNumber {
+.outerContainer .PhoneNumber {
     width: 100%;
     height: 75px;
 }
 
-.PhoneNumber label {
+.outerContainer .PhoneNumber label {
     padding: 0px;
     margin: 3px;
     margin-left: 10px;
@@ -318,7 +322,7 @@ body{
     font-style: normal;
 }
 
-.PhoneNumber .NumberField {
+.outerContainer .PhoneNumber .NumberField {
     width: 100%;
     height: 40px;
     background-color: white;
@@ -546,8 +550,8 @@ form{
     padding: 3px 7px;
 
     -webkit-box-shadow: 3px 2px 0px -1px rgba(0,0,0,1);
--moz-box-shadow: 3px 2px 0px -1px rgba(0,0,0,1);
-box-shadow: 3px 2px 0px -1px rgba(0,0,0,1);
+    -moz-box-shadow: 3px 2px 0px -1px rgba(0,0,0,1);
+    box-shadow: 3px 2px 0px -1px rgba(0,0,0,1);
 }
 
 .textfield:focus{
@@ -571,7 +575,7 @@ form button{
 }  
 
 form button:active{
-box-shadow: none;
+    box-shadow: none;
 }
 
 .googleContainer{
@@ -636,24 +640,266 @@ box-shadow: none;
     background-color: #E0FF97;
 }
 
-.PhoneNumber .PhoneNumberText {
+.outerContainer .PhoneNumber .PhoneNumberText {
     display: flex;
     flex-direction: row;
     column-gap: 7px;
 }
 
-.itemimage{
+.itemImage{
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
-.itempagecontainer{
+.itemPageContainer{
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
+.itemPageContainer .itemImg{
+    width: 100%;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 14px;
+    background-color: lightgray;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+}
+.itemPageContainer .itemImg .Img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.itemPageContainer .itemDetailsContainer{
+    width: 100%;
+    height: 40vh;
+    margin-top: 7%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 12px;
+    background-color: white;
+    box-sizing: border-box;
+    resize: none;
+}
+.itemPageContainer .itemDetailsContainer .itemName {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5vh;
+    margin-top: 4%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: white;
+    box-sizing: border-box;
+    resize: none;
+}
+.itemPageContainer .itemDetailsContainer .itemName h3{
+    display: flex;
+    width: 32%;
+    height: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 14px;
+    background-color: #FFBDFC;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: center;
+    align-items: center;
+}
 
+.itemPageContainer .itemDetailsContainer .seenAt {
+    width: 100%;
+    height: 5vh;
+    margin-top: 4%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: white;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.itemPageContainer .itemDetailsContainer .seenAt h3{
+    display: flex;
+    width: 32%;
+    height: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 14px;
+    background-color: #FFBDFC;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemPageContainer .itemDetailsContainer .description {
+    width: 100%;
+    height: 21.5vh;
+    margin-top: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: white;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.itemPageContainer .itemDetailsContainer .description h3{
+    display: flex;
+    width: 32%;
+    height: 32px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 14px;
+    background-color: #FFBDFC;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemPageContainer .phoneContainer {
+    width: 100%;
+    height: 17vh;
+    margin-top: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 17px;
+    background-color: white;
+    box-sizing: border-box;
+    resize: none;
+}
+.itemPageContainer .phoneContainer .PhoneNumber{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+.itemPageContainer .phoneContainer .PhoneNumberField{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 4vh;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.itemPageContainer .phoneContainer .PhoneNumberField .NumberField{
+    width: 70%;
+    border: none;
+}
+
+.itemPageContainer .phoneContainer .PhoneNumberField .sendOTP{
+    display: flex;
+    width: 28%;
+    height: 25px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #FFBDFC;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 8px 8px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: 6px 6px -1px 5px rgba(0, 0, 0, 1);
+}
+
+.itemPageContainer .phoneContainer .OTP .OTPField{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 4vh;
+    border-radius: 10px;
+    align-items: center;
+    column-gap: 5px;
+    justify-content: center;
+}
+
+.itemPageContainer .phoneContainer .OTP .OTPField .OTPNumberField{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 50%;
+    height: 30px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.itemPageContainer .phoneContainer .OTP .OTPField .ShowNumber{
+    display: flex;
+    width: 45%;
+    height: 30px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #FFBDFC;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 8px 8px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: 6px 6px -1px 5px rgba(0, 0, 0, 1);
+}
+
+.itemPageContainer .contactContainer {
+    display: flex;
+    width: 100%;
+    height: 4.5vh;
+    margin-top: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 17px;
+    background-color: white;
+    box-sizing: border-box;
+    resize: none;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.itemPageContainer .contactContainer .contactAt{
+    display: flex;
+    width: 45%;
+    height: 30px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #FFBDFC;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemPageContainer .contactContainer .contactNumber{
+    width: 70%;
+    height: 30px;
+    background-color: black;
+}
 
 a,a:link,a:visited{
     text-decoration: none;
