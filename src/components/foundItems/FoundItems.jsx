@@ -27,15 +27,15 @@ function FoundItems({ supabase }) {
         <div className="FI-Title">FOUND ITEMS</div>
         <div className="FI-List">
           {items.map((item, index) => (
-            <Link to={`/ItemPage/found/${item.id}`}>
-              <div className="FI" key={index}>
+            <Link to={`/ItemPage/found/${item.id}`} key={item.id}>
+              <div className="FI">
                 <div className="info">
                   <p className="Item-Name">{item.item_name}</p>
                   <p className="Location">Found at:{item.found_at}</p>
                 </div>
                 <div className="BDesign"></div>
                 <div className="FII">
-                  <img src={item.img_url} alt="" className="itemimage" />
+                  <img src={item.img_url} alt="" className="itemImage" />
                 </div>
               </div>
             </Link>

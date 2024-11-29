@@ -27,7 +27,7 @@ function LostItems({ supabase }) {
         <div className="LI-Title">LOST ITEMS</div>
         <div className="LI-List">
           {items.map((item, index) => (
-            <Link to={`/ItemPage/lost/${item.id}`}>
+            <Link to={`/ItemPage/lost/${item.id}`} key={item.id}>
               <div className="LI" key={index}>
                 <div className="info">
                   <p className="Item-Name">{item.Item_name}</p>
@@ -35,7 +35,7 @@ function LostItems({ supabase }) {
                 </div>
                 <div className="BDesign"></div>
                 <div className="LII">
-                  <img src={item.img_url} alt="" className="itemimage" />
+                  <img src={item.img_url} alt="" className="itemImage" />
                 </div>
               </div>
             </Link>

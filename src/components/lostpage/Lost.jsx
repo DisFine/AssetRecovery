@@ -36,14 +36,15 @@ function Lost({ supabase }) {
     setSelectedIcon(icon);
   };
 
-  const [itemname, setitemname] = useState("");
-  const [lostat, setlostat] = useState("");
-  const [phonenumber, setphonenumber] = useState("");
-  const [description, setdescription] = useState("");
-  const [imageurl, setimageurl] = useState(
+  const [itemName, setItemName] = useState("");
+  const [lostAt, setLostAt] = useState("");
+  const [PhoneNumber, setPhoneNumber] = useState("");
+  const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState(
     "https://th.bing.com/th/id/OIP.EZrb_W935zKQpTgcBTAXBgHaEc?w=296&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
   );
-  const [file, setfile] = useState(null);
+  
+  const [file, setFile] = useState(null);
   return (
     <>
       <div className="outerContainer Adjustment">
@@ -51,7 +52,7 @@ function Lost({ supabase }) {
           Add Lost ‎‎ <span>Item</span>
         </div>
         <div className="Img">
-          <img src={imageurl} alt="" className="itemimage" />
+          <img src={imageUrl} alt="" className="itemImage" />
         </div>
         <div className="PSelect">
           <i
@@ -60,19 +61,19 @@ function Lost({ supabase }) {
             }`}
             onClick={() => {
               handleSelect("camera");
-              document.getElementById("camerainput").click();
+              document.getElementById("cameraInput").click();
             }}
           ></i>
           <input
             type="file"
             accept="image/*"
             capture="camera"
-            id="camerainput"
+            id="cameraInput"
             style={{ display: "none" }}
             onChange={async (e) => {
-              setfile(e.target.files[0]);
+              setFile(e.target.files[0]);
               const tempUrl = URL.createObjectURL(e.target.files[0]);
-              setimageurl(tempUrl);
+              setImageUrl(tempUrl);
             }}
           ></input>
           <i
@@ -81,18 +82,18 @@ function Lost({ supabase }) {
             }`}
             onClick={() => {
               handleSelect("image");
-              document.getElementById("galleryinput").click();
+              document.getElementById("galleryInput").click();
             }}
           ></i>
           <input
             type="file"
             accept="image/*"
-            id="galleryinput"
+            id="galleryInput"
             style={{ display: "none" }}
             onChange={async (e) => {
-              setfile(e.target.files[0]);
+              setFile(e.target.files[0]);
               const tempUrl = URL.createObjectURL(e.target.files[0]);
-              setimageurl(tempUrl);
+              setImageUrl(tempUrl);
             }}
           ></input>
         </div>
@@ -102,9 +103,9 @@ function Lost({ supabase }) {
             type="text"
             id="IName"
             className="NameField"
-            value={itemname}
+            value={itemName}
             onChange={(e) => {
-              setitemname(e.target.value);
+              setItemName(e.target.value);
             }}
           ></input>
         </div>
@@ -114,9 +115,9 @@ function Lost({ supabase }) {
             type="text"
             id="ILocation"
             className="LostField"
-            value={lostat}
+            value={lostAt}
             onChange={(e) => {
-              setlostat(e.target.value);
+              setLostAt(e.target.value);
             }}
           ></input>
         </div>
@@ -129,9 +130,9 @@ function Lost({ supabase }) {
             type="number"
             id="INumber"
             className="NumberField"
-            value={phonenumber}
+            value={PhoneNumber}
             onChange={(e) => {
-              setphonenumber(e.target.value);
+              setPhoneNumber(e.target.value);
             }}
           ></input>
         </div>
@@ -141,7 +142,7 @@ function Lost({ supabase }) {
           placeholder="Description"
           value={description}
           onChange={(e) => {
-            setdescription(e.target.value);
+            setDescription(e.target.value);
           }}
         ></textarea>
         <button
@@ -150,37 +151,37 @@ function Lost({ supabase }) {
             const filename = file.name;
             let Path;
 
-            const { data: datapath, error: errorpath } = await supabase.storage
+            const { data: dataPath, error: errorPath } = await supabase.storage
               .from("Items")
               .upload("Lost_items/" + filename, file, {
                 cacheControl: "3600",
                 upsert: false,
               });
 
-            if (errorpath) {
-              console.error("error : ", errorpath);
+            if (errorPath) {
+              console.error("error : ", errorPath);
             } else {
-              console.log(datapath.path);
-              Path = datapath.path;
+              console.log(dataPath.path);
+              Path = dataPath.path;
             }
 
-            const { data: dataurl } = supabase.storage
+            const { data: dataUrl } = supabase.storage
               .from("Items")
               .getPublicUrl(Path);
 
-            console.log("dataurl: ", dataurl.publicUrl);
+            console.log("dataUrl: ", dataUrl.publicUrl);
             console.log("path : ", Path);
 
-            setimageurl(dataurl.publicUrl);
+            setImageUrl(dataUrl.publicUrl);
 
             const { data, error } = await supabase
               .from("Lost_Items")
               .insert([
                 {
-                  Item_name: itemname,
-                  Lost_at: lostat,
+                  Item_name: itemName,
+                  Lost_at: lostAt,
                   Description: description,
-                  img_url: imageurl,
+                  img_url: imageUrl,
                   still_lost: true,
                   user_id: user.id,
                 },
