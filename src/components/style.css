@@ -912,3 +912,114 @@ a,a:link,a:visited{
         font-size: 42px;
     }
 }
+
+.UserOuterContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.UserOuterContainer .container1{
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    margin-top: 5%;
+    column-gap: 5px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.UserOuterContainer .container1 .UserNameField{
+    font-weight: 700;
+    padding: 2%;
+    padding-left: 4%;
+    width: 74%;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 15px 8px 8px 15px;
+    -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 6px 9px 0px -4px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 0px 10px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), -1px 5px 3px 0px rgba(0, 0, 0, 1);
+}
+.UserOuterContainer .container1 .LogOutField{
+    font-weight: 700;
+    padding: 2%;
+    width: 25%;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: white;
+    border-radius: 8px 15px 15px 8px;
+    background-color: #FFBDFC;
+    -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 6px 9px 0px -4px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 0px 10px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 1px 5px 3px 0px rgba(0, 0, 0, 1);
+}
+
+.UserOuterContainer .container2{
+    width: 100%;
+    height: calc(var(--vh, 1vh)* 85);
+}
+
+.UserOuterContainer .container2 h2{
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.UserOuterContainer .container2 .container3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: white;
+    padding: 0px 5px 16px 5px;
+    border-radius: 17px;
+    -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 6px 9px 0px -4px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 0px 10px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 0px 10px 0px -4px rgba(0, 0, 0, 1);
+    overflow: auto;
+}
+
+.UserOuterContainer .container2 .container3 .YourItem{
+    margin-top: 8.5%;
+}
+
+.UserOuterContainer .container2 .container3 .OptionPart{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    margin-top: 2%;
+    column-gap: 15px;
+}
+
+.UserOuterContainer .container2 .container3 .OptionPart .MarkAsFound{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    padding: 2%;
+    width: 50%;
+    border: 2px solid black;
+    background-color: #b3ff01ae;
+    border-radius: 12px;
+    -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 6px 9px 0px -4px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 0px 10px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 1px 2px 3px 1px rgba(0, 0, 0, 1);
+}
+
+.UserOuterContainer .container2 .container3 .OptionPart .Remove{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    padding: 2%;
+    width: 50%;
+    border: 2px solid black;
+    background-color: rgb(250 95 95);
+    border-radius: 12px;
+    -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 6px 9px 0px -4px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 0px 10px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1), 1px 2px 3px 1px rgba(0, 0, 0, 1);
+}
