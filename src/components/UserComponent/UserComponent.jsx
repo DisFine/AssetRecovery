@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 import "../style.css";
+import { Link } from "react-router-dom";
 
 function UserComponent() {
   return (
@@ -8,6 +9,11 @@ function UserComponent() {
         <div className="container1">
           <div className="UserNameField">UserName</div>
           <button className="LogOutField">LogOut</button>
+        </div>
+        <div className="addpost">
+          <Link to="/Lost">
+            <button>Add post</button>
+          </Link>
         </div>
         <div className="container2">
           <h2>Your Items</h2>
@@ -20,7 +26,7 @@ function UserComponent() {
                 </div>
                 <div className="BDesign"></div>
                 <div className="FII">
-                  <img alt="" className="itemImage"/>
+                  <img alt="" className="itemImage" />
                 </div>
               </div>
               <div className="OptionPart">
@@ -32,7 +38,7 @@ function UserComponent() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default UserComponent
+export default UserComponent;

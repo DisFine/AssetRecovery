@@ -28,11 +28,24 @@ async function fetchItem(id, type, supabase) {
 function ItemPage({ supabase }) {
   const { type, id } = useParams();
   const [item, setItem] = useState(null);
+  const [itemname, setItemName] = useState("");
+  const [seenat, setseenat] = useState("");
+  const [desc, setdesc] = useState("");
+  const [contactno, setcontactno] = useState("");
 
   useEffect(() => {
     async function getItem() {
       const fetchedItem = await fetchItem(id, type, supabase);
       setItem(fetchedItem[0]);
+      if (type === "lost") {
+        setItemName(fetchedItem[0].Item_name);
+        setseenat(fetchedItem[0].Lost_at);
+        setdesc(fetchedItem[0].Description);
+      } else {
+        setItemName(fetchedItem[0].item_name);
+        setseenat(fetchedItem[0].found_at);
+        setdesc(fetchedItem[0].description);
+      }
     }
     getItem();
   }, [id, type, supabase]);
@@ -44,43 +57,28 @@ function ItemPage({ supabase }) {
   return (
     <div className="itemPageContainer">
       <div className="itemImg">
-          <img src={item.img_url} alt="" className="Img"/>
+        <img src={item.img_url} alt="" className="Img" />
       </div>
       <div className="itemDetailsContainer">
         <div className="itemName">
-            <h3>Item Name</h3>
+          <h3>Item Name</h3>
+          <p>{itemname}</p>
         </div>
         <div className="seenAt">
-            <h3>Seen At</h3>
+          <h3>Seen At</h3>
+          <p>{seenat}</p>
         </div>
         <div className="description">
-            <h3>Description</h3>
+          <h3>Description</h3>
+          <p>{desc}</p>
         </div>
       </div>
-      <div className="phoneContainer">
-        <div className="PhoneNumber">
-          <h3>Phone Number</h3>
-          <i className="fa fa-question-circle"></i>
-        </div>
-        <div className="PhoneNumberField">
-          <div className="sendOTP">
-            Send OTP
-          </div>
-          <input className="NumberField" type="number" ></input>
-        </div>
-        <div className="OTP">
-          <h3>OTP</h3>
-          <div className="OTPField">
-            <div className="ShowNumber">
-              Show Number
-            </div>
-            <input className="OTPNumberField" type="number" ></input>
-          </div>
-        </div>
-      </div>
+
       <div className="contactContainer">
         <div className="contactAt">Contact At</div>
-        <div className="contactNumber"></div>
+        <div className="contactNumber">
+          <p className="contactno">{contactno}</p>
+        </div>
       </div>
     </div>
   );
