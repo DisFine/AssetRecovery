@@ -43,7 +43,7 @@ function Lost({ supabase }) {
   const [imageUrl, setImageUrl] = useState(
     "https://th.bing.com/th/id/OIP.EZrb_W935zKQpTgcBTAXBgHaEc?w=296&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
   );
-  
+
   const [file, setFile] = useState(null);
   return (
     <>

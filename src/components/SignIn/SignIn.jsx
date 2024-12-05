@@ -15,7 +15,7 @@ async function signIn_function(supabase, email, password, navigate) {
   if (error) {
     alert("Wrong Email or password.");
   } else {
-    navigate("/Lost");
+    navigate("/User", { replace: true });
   }
 }
 
@@ -34,7 +34,7 @@ function SignIn({ supabase }) {
     async function checkAuth() {
       const user = await isAuthenticated(supabase);
       if (user) {
-        navigate("/Lost");
+        navigate("/User", { replace: true });
       }
     }
     checkAuth();

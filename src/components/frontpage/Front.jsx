@@ -2,7 +2,7 @@ import "../style.css";
 import { Link } from "react-router-dom";
 
 function Front({ supabase }) {
-  console.log("Aman is a bad boy...");
+  console.log("Daitheorem is a bad boy...");
   return (
     <>
       <div className="outerContainer Adjustment">
