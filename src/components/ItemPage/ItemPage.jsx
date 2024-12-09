@@ -41,10 +41,12 @@ function ItemPage({ supabase }) {
         setItemName(fetchedItem[0].Item_name);
         setseenat(fetchedItem[0].Lost_at);
         setdesc(fetchedItem[0].Description);
+        setcontactno(fetchedItem[0].phone_number);
       } else {
         setItemName(fetchedItem[0].item_name);
         setseenat(fetchedItem[0].found_at);
         setdesc(fetchedItem[0].description);
+        setcontactno(fetchedItem[0].phone_number);
       }
     }
     getItem();
@@ -76,7 +78,13 @@ function ItemPage({ supabase }) {
 
       <div className="contactContainer">
         <div className="contactAt">Contact At</div>
-        <div className="contactNumber">
+        <div
+          className="contactNumber"
+          onClick={(e) => {
+            e.stopPropagation();
+            e.target.style.background = "transparent";
+          }}
+        >
           <p className="contactno">{contactno}</p>
         </div>
       </div>

@@ -171,8 +171,7 @@ function Lost({ supabase }) {
 
             console.log("dataUrl: ", dataUrl.publicUrl);
             console.log("path : ", Path);
-
-            setImageUrl(dataUrl.publicUrl);
+            const finalurl = dataUrl.publicUrl;
 
             const { data, error } = await supabase
               .from("Lost_Items")
@@ -181,8 +180,9 @@ function Lost({ supabase }) {
                   Item_name: itemName,
                   Lost_at: lostAt,
                   Description: description,
-                  img_url: imageUrl,
+                  img_url: finalurl,
                   still_lost: true,
+                  phone_number: PhoneNumber,
                   user_id: user.id,
                 },
               ])
@@ -190,6 +190,9 @@ function Lost({ supabase }) {
 
             if (error) {
               console.log("error: ", error);
+            } else {
+              console.log("Final url: ", imageUrl);
+              navigate("/User");
             }
           }}
         >

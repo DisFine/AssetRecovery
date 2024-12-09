@@ -151,6 +151,7 @@ function FoundPage({ supabase }) {
                   found_at: foundAt,
                   description: description,
                   img_url: imageUrl,
+                  phone_number: PhoneNumber,
                 },
               ])
               .select();

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 async function fetchLostItems(supabase, setItems) {
   let { data: Lost_Items, error } = await supabase
     .from("Lost_Items")
-    .select("*");
+    .select("*")
+    .is("still_lost", true);
 
   if (error) {
     console.log(error);
