@@ -32,6 +32,7 @@ function ItemPage({ supabase }) {
   const [seenat, setseenat] = useState("");
   const [desc, setdesc] = useState("");
   const [contactno, setcontactno] = useState("");
+  const [isTransparent, setIsTransparent] = useState(false);
 
   useEffect(() => {
     async function getItem() {
@@ -80,10 +81,8 @@ function ItemPage({ supabase }) {
         <div className="contactAt">Contact At</div>
         <div
           className="contactNumber"
-          onClick={(e) => {
-            e.stopPropagation();
-            e.target.style.background = "transparent";
-          }}
+          style={{ background: isTransparent ? "transparent" : "black" }}
+          onClick={() => setIsTransparent(true)}
         >
           <p className="contactno">{contactno}</p>
         </div>

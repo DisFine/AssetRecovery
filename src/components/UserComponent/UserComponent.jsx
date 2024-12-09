@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 async function fetchYourItems(supabase, setyouritems) {
   const {
     data: { user },
@@ -19,6 +19,7 @@ async function fetchYourItems(supabase, setyouritems) {
   setyouritems(Lost_Items);
 }
 function UserComponent({ supabase }) {
+  const navigate = useNavigate();
   const [youritems, setyouritems] = useState([]);
   useEffect(() => {
     fetchYourItems(supabase, setyouritems);
@@ -28,7 +29,19 @@ function UserComponent({ supabase }) {
       <div className="UserOuterContainer">
         <div className="container1">
           <div className="UserNameField">UserName</div>
-          <button className="LogOutField">LogOut</button>
+          <button
+            className="LogOutField"
+            onClick={async () => {
+              let { error } = await supabase.auth.signOut();
+              if (error) {
+                console.log(error);
+              } else {
+                navigate("/");
+              }
+            }}
+          >
+            LogOut
+          </button>
         </div>
         <div className="addpost">
           <Link to="/Lost">
