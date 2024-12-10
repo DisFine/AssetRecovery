@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../style.css";
 import { Link, useNavigate } from "react-router-dom";
-async function fetchYourItems(supabase, setyouritems) {
+async function fetchYourItems(supabase, setyouritems, setusername) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -16,19 +16,23 @@ async function fetchYourItems(supabase, setyouritems) {
     console.log(error);
     return;
   }
+
   setyouritems(Lost_Items);
+  setusername(user.email);
 }
 function UserComponent({ supabase }) {
   const navigate = useNavigate();
   const [youritems, setyouritems] = useState([]);
+  const [username, setusername] = useState("");
   useEffect(() => {
-    fetchYourItems(supabase, setyouritems);
+    fetchYourItems(supabase, setyouritems, setusername);
   }, [supabase]);
+
   return (
     <>
       <div className="UserOuterContainer">
         <div className="container1">
-          <div className="UserNameField">UserName</div>
+          <div className="UserNameField">{username}</div>
           <button
             className="LogOutField"
             onClick={async () => {
