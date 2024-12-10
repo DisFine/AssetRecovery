@@ -60,7 +60,7 @@ function ItemPage({ supabase }) {
   return (
     <div className="itemPageContainer">
       <div className="itemImg">
-        <img src={item.img_url} alt="" className="Img" />
+        <img src={item.img_url} alt="" className="Img" onClick={(e) => {}} />
       </div>
       <div className="itemDetailsContainer">
         <div className="itemName">
