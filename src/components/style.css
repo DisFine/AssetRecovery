@@ -118,8 +118,9 @@ body {
   box-shadow: 8px 8px 0px -4px rgba (0, 0, 0, 1);
 }
 
-.btn:hover {
-  background-color: red;
+.btn:active {
+    box-shadow: none;
+    transform: translateY(2px);
 }
 
 .ButtonsIndex {
@@ -132,10 +133,6 @@ body {
   width: 100%;
   height: 100px;
   background-color: #ffbdfc;
-}
-
-.ButtonsIndex .btn:hover {
-  background-color: red;
 }
 
 .FI-Title {
@@ -206,6 +203,7 @@ body {
   background-color: lightgray;
   border: 3px solid black;
   border-radius: 12px;
+  overflow: hidden;
 }
 
 .FoundTitle {
@@ -229,14 +227,14 @@ body {
 
 .outerContainer .Img {
   width: 100%;
-  height: 20vh;
+  height: calc(var(--vh, 1vh) * 20);
   border: 1px solid black;
   border-radius: 14px;
   background-color: lightgray;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  margin-top: 5vh;
+  margin-top: 0vh;
 }
 
 .PSelect {
@@ -336,7 +334,10 @@ body {
   box-sizing: border-box;
   resize: none;
 }
-
+.description p{
+  overflow-y: auto;
+  word-wrap: break-word;
+}
 .description::placeholder {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -360,8 +361,9 @@ body {
   box-shadow: 8px 8px 0px -4px rgba (0, 0, 0, 1);
 }
 
-.PostBtn:hover {
-  background-color: red;
+.PostBtn:active {
+  box-shadow: none;
+  transform: translateY(2px);
 }
 
 .LI-Title {
@@ -432,11 +434,13 @@ body {
   background-color: lightgray;
   border: 3px solid black;
   border-radius: 12px;
+  overflow: hidden;
 }
 
 .lostTitle {
   display: flex;
   width: 100%;
+  height: 11.7vh;
   margin-top: 10px;
   font-family: "Syncopate", sans-serif;
   font-weight: 700;
@@ -632,7 +636,7 @@ form button:active {
 .outerContainer .PhoneNumber .PhoneNumberText {
   display: flex;
   flex-direction: row;
-  column-gap: 7px;
+  column-gap: 2px;
 }
 
 .itemImage {
@@ -677,6 +681,7 @@ form button:active {
 }
 .itemPageContainer .itemDetailsContainer .itemName {
   display: flex;
+  column-gap: 7px;
   flex-direction: row;
   width: 100%;
   height: 5vh;
@@ -705,6 +710,8 @@ form button:active {
 }
 
 .itemPageContainer .itemDetailsContainer .seenAt {
+  display: flex;
+  column-gap: 7px;
   width: 100%;
   height: 5vh;
   margin-top: 4%;
@@ -733,6 +740,9 @@ form button:active {
 }
 
 .itemPageContainer .itemDetailsContainer .description {
+  display: flex;
+  flex-direction: column;
+  column-gap: 7px;
   width: 100%;
   height: 21.5vh;
   margin-top: 5%;
@@ -885,9 +895,14 @@ form button:active {
 }
 
 .itemPageContainer .contactContainer .contactNumber {
+  display: flex;
   width: 70%;
-  height: 30px;
   background-color: black;
+}
+
+.itemPageContainer .contactContainer .contactNumber p {
+  width: 100%;
+  height: 100%;
 }
 
 a,
@@ -920,6 +935,7 @@ a:visited {
   align-items: center;
   justify-content: center;
 }
+
 .UserOuterContainer .container1 .UserNameField {
   font-weight: 700;
   padding: 2%;
@@ -928,13 +944,8 @@ a:visited {
   border: 3px solid black;
   background-color: white;
   border-radius: 15px 8px 8px 15px;
-  -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    6px 9px 0px -4px rgba(0, 0, 0, 1);
-  -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    0px 10px 0px -4px rgba(0, 0, 0, 1);
-  box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    -1px 5px 3px 0px rgba(0, 0, 0, 1);
 }
+
 .UserOuterContainer .container1 .LogOutField {
   font-weight: 700;
   padding: 2%;
@@ -943,12 +954,14 @@ a:visited {
   background-color: white;
   border-radius: 8px 15px 15px 8px;
   background-color: #ffbdfc;
-  -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    6px 9px 0px -4px rgba(0, 0, 0, 1);
-  -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    0px 10px 0px -4px rgba(0, 0, 0, 1);
-  box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    1px 5px 3px 0px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 8px 8px 0px -4px rgba(0, 0, 0, 1);
+  box-shadow: 7px 7px -1px -4px rgba(0, 0, 0, 1);
+}
+
+.UserOuterContainer .container1 .LogOutField:active {
+    box-shadow: none;
+    transform: translateY(2px);
 }
 
 .UserOuterContainer .container2 {
@@ -957,7 +970,7 @@ a:visited {
 }
 
 .UserOuterContainer .container2 h2 {
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 5%;
 }
 
@@ -965,7 +978,7 @@ a:visited {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 90%;
+  height: 85%;
   border: 3px solid rgb(0, 0, 0);
   background-color: white;
   padding: 0px 5px 16px 5px;
@@ -1000,15 +1013,17 @@ a:visited {
   font-weight: 700;
   padding: 2%;
   width: 50%;
-  border: 2px solid black;
+  border: 3px solid black;
   background-color: #b3ff01ae;
   border-radius: 12px;
-  -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    6px 9px 0px -4px rgba(0, 0, 0, 1);
-  -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    0px 10px 0px -4px rgba(0, 0, 0, 1);
-  box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    1px 2px 3px 1px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 8px 8px 0px -4px rgba(0, 0, 0, 1);
+  box-shadow: 7px 7px -1px -4px rgba(0, 0, 0, 1);
+}
+
+.UserOuterContainer .container2 .container3 .OptionPart .MarkAsFound:active {
+    box-shadow: none;
+    transform: translateY(2px);
 }
 
 .UserOuterContainer .container2 .container3 .OptionPart .Remove {
@@ -1017,13 +1032,67 @@ a:visited {
   font-weight: 700;
   padding: 2%;
   width: 50%;
-  border: 2px solid black;
+  border: 3px solid black;
   background-color: rgb(250 95 95);
   border-radius: 12px;
-  -webkit-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    6px 9px 0px -4px rgba(0, 0, 0, 1);
-  -moz-box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    0px 10px 0px -4px rgba(0, 0, 0, 1);
-  box-shadow: inset -5px -5px 12px -4px rgba(0, 0, 0, 1),
-    1px 2px 3px 1px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 8px 8px 0px -4px rgba(0, 0, 0, 1);
+  box-shadow: 7px 7px -1px -4px rgba(0, 0, 0, 1);
+}
+
+.UserOuterContainer .container2 .container3 .OptionPart .Remove:active {
+    box-shadow: none;
+    transform: translateY(2px);
+}
+
+.addpost a button{
+    background-color: #ffbdfc;
+    border: solid;
+    color: white;
+    padding: 5px 20px;
+    margin-top: 26%;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    border-radius: 12px;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    -webkit-box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 8px 8px 0px -4px rgba(0, 0, 0, 1);
+    box-shadow: 7px 7px -1px -4px rgba(0, 0, 0, 1);
+}
+
+.addpost a button:active{
+    box-shadow: none;
+    transform: translateY(2px);
+}
+
+.icon-container {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.icon-container .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 125%; /* Position tooltip above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.icon-container:hover .tooltip-text {
+visibility: visible;
+opacity: 1;
 }

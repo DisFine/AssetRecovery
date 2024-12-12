@@ -31,7 +31,7 @@ function FoundItems({ supabase }) {
               <div className="FI">
                 <div className="info">
                   <p className="Item-Name">{item.item_name}</p>
-                  <p className="Location">Found at:{item.found_at}</p>
+                  <p className="Location">Found at: {item.found_at}</p>
                 </div>
                 <div className="BDesign"></div>
                 <div className="FII">
