@@ -32,7 +32,7 @@ function LostItems({ supabase }) {
               <div className="LI" key={index}>
                 <div className="info">
                   <p className="Item-Name">{item.Item_name}</p>
-                  <p className="Location">Last Seen at:{item.Lost_at}</p>
+                  <p className="Location">Last Seen at: {item.Lost_at}</p>
                 </div>
                 <div className="BDesign"></div>
                 <div className="LII">

@@ -94,12 +94,17 @@ function FoundPage({ supabase }) {
         <div className="PhoneNumber">
           <div className="PhoneNumberText">
             <label htmlFor="INumber">Phone Number</label>
-            <i className="fa fa-question-circle"></i>
+            <div className="icon-container">
+              <i className="fa fa-question-circle"></i>
+              <span className="tooltip-text">Enter your 10-digit phone number.</span>
+            </div>
           </div>
           <input
             type="number"
             id="INumber"
             className="NumberField"
+            min={10}
+            max={10}
             value={PhoneNumber}
             onChange={(e) => {
               setPhoneNumber(e.target.value);

@@ -49,7 +49,7 @@ function Lost({ supabase }) {
     <>
       <div className="outerContainer Adjustment">
         <div className="lostTitle">
-          Add Lost ‎‎ <span>Item</span>
+          Add Lost ‎<span>Item</span>
         </div>
         <div className="Img">
           <img src={imageUrl} alt="" className="itemImage" />
@@ -124,7 +124,10 @@ function Lost({ supabase }) {
         <div className="PhoneNumber">
           <div className="PhoneNumberText">
             <label htmlFor="INumber">Phone Number</label>
-            <i className="fa fa-question-circle"></i>
+            <div className="icon-container">
+              <i className="fa fa-question-circle"></i>
+              <span className="tooltip-text">Enter your 10-digit phone number.</span>
+            </div>
           </div>
           <input
             type="number"
