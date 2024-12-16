@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 async function fetchFoundItems(supabase, setFoundItems) {
   let { data: Found_items, error } = await supabase
     .from("Found_items")
-    .select("*");
+    .select("*")
+    .order("created_at", { ascending: false });
 
   if (error) {
     console.error(error);

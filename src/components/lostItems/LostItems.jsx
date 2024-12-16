@@ -6,7 +6,8 @@ async function fetchLostItems(supabase, setItems) {
   let { data: Lost_Items, error } = await supabase
     .from("Lost_Items")
     .select("*")
-    .is("still_lost", true);
+    .is("still_lost", true)
+    .order("created_at", { ascending: true });
 
   if (error) {
     console.log(error);

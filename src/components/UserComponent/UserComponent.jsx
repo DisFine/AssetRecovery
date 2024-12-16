@@ -92,6 +92,29 @@ function UserComponent({ supabase }) {
                     className="Remove"
                     onClick={async () => {
                       console.log("Clicked");
+                      let { data: Lost_Items, erroru } = await supabase
+                        .from("Lost_Items")
+                        .select("img_url")
+                        .eq("id", item.id);
+                      let publicUrl = Lost_Items[0].img_url;
+
+                      const filePath = publicUrl.split(
+                        "/storage/v1/object/public/Items/"
+                      )[1];
+
+                      console.log(filePath);
+                      // Delete the file from the bucket
+
+                      const { errori } = await supabase.storage
+                        .from("Items")
+                        .remove([filePath]);
+
+                      if (errori) {
+                        console.error("Error deleting file:", errori);
+                      } else {
+                        console.log("File deleted successfully");
+                      }
+
                       const { error } = await supabase
                         .from("Lost_Items")
                         .delete()
@@ -99,6 +122,7 @@ function UserComponent({ supabase }) {
                       if (error) {
                         console.log("Couldn't remove item. ", error);
                       }
+
                       fetchYourItems(supabase, setyouritems);
                     }}
                   >
