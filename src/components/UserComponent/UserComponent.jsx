@@ -10,14 +10,28 @@ async function fetchYourItems(supabase, setyouritems, setusername) {
     .from("Lost_Items")
     .select("*")
     .eq("user_id", user.id)
-    .is("still_lost", true);
+    .is("still_lost", true)
+    .order("created_at", { ascending: false });
 
   if (error) {
     console.log(error);
     return;
   }
 
-  setyouritems(Lost_Items);
+  let { data: markedfound, errorfound } = await supabase
+    .from("Lost_Items")
+    .select("*")
+    .eq("user_id", user.id)
+    .is("still_lost", false);
+
+  if (errorfound) {
+    console.log(errorfound);
+    return;
+  }
+
+  let allitems = Lost_Items.concat(markedfound);
+
+  setyouritems(allitems);
   setusername(user.email);
 }
 function UserComponent({ supabase }) {

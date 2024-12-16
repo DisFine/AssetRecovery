@@ -43,7 +43,7 @@ function Lost({ supabase }) {
   const [imageUrl, setImageUrl] = useState(
     "https://th.bing.com/th/id/OIP.EZrb_W935zKQpTgcBTAXBgHaEc?w=296&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
   );
-
+  let finalurl = "";
   const [file, setFile] = useState(null);
   return (
     <>
@@ -126,7 +126,9 @@ function Lost({ supabase }) {
             <label htmlFor="INumber">Phone Number</label>
             <div className="icon-container">
               <i className="fa fa-question-circle"></i>
-              <span className="tooltip-text">Enter your 10-digit phone number.</span>
+              <span className="tooltip-text">
+                This number will be used to contact you.
+              </span>
             </div>
           </div>
           <input
@@ -151,51 +153,65 @@ function Lost({ supabase }) {
         <button
           className="PostBtn"
           onClick={async () => {
-            const filename = file.name;
-            let Path;
+            if (PhoneNumber.length === 12 || PhoneNumber.length === 10) {
+              if (file) {
+                const filename = file.name;
+                let Path;
 
-            const { data: dataPath, error: errorPath } = await supabase.storage
-              .from("Items")
-              .upload("Lost_items/" + filename, file, {
-                cacheControl: "3600",
-                upsert: false,
-              });
+                const { data: dataPath, error: errorPath } =
+                  await supabase.storage
+                    .from("Items")
+                    .upload("Lost_items/" + filename, file, {
+                      cacheControl: "3600",
+                      upsert: false,
+                    });
 
-            if (errorPath) {
-              console.error("error : ", errorPath);
+                if (errorPath) {
+                  console.error("error : ", errorPath);
+                  alert(
+                    "Couldn't Post. Make sure you don't have another post with the same image and then try again."
+                  );
+                  navigate("/User");
+                } else {
+                  console.log(dataPath.path);
+                  Path = dataPath.path;
+                }
+
+                const { data: dataUrl } = supabase.storage
+                  .from("Items")
+                  .getPublicUrl(Path);
+
+                console.log("dataUrl: ", dataUrl.publicUrl);
+                console.log("path : ", Path);
+                finalurl = dataUrl.publicUrl;
+              } else {
+                finalurl =
+                  "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
+              }
+
+              const { data, error } = await supabase
+                .from("Lost_Items")
+                .insert([
+                  {
+                    Item_name: itemName,
+                    Lost_at: lostAt,
+                    Description: description,
+                    img_url: finalurl,
+                    still_lost: true,
+                    phone_number: PhoneNumber,
+                    user_id: user.id,
+                  },
+                ])
+                .select();
+
+              if (error) {
+                console.log("error: ", error);
+              } else {
+                console.log("Final url: ", imageUrl);
+                navigate("/User");
+              }
             } else {
-              console.log(dataPath.path);
-              Path = dataPath.path;
-            }
-
-            const { data: dataUrl } = supabase.storage
-              .from("Items")
-              .getPublicUrl(Path);
-
-            console.log("dataUrl: ", dataUrl.publicUrl);
-            console.log("path : ", Path);
-            const finalurl = dataUrl.publicUrl;
-
-            const { data, error } = await supabase
-              .from("Lost_Items")
-              .insert([
-                {
-                  Item_name: itemName,
-                  Lost_at: lostAt,
-                  Description: description,
-                  img_url: finalurl,
-                  still_lost: true,
-                  phone_number: PhoneNumber,
-                  user_id: user.id,
-                },
-              ])
-              .select();
-
-            if (error) {
-              console.log("error: ", error);
-            } else {
-              console.log("Final url: ", imageUrl);
-              navigate("/User");
+              alert("Invalid Phone Number.");
             }
           }}
         >

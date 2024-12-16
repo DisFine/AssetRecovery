@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "../style.css";
+import { Link, useNavigate } from "react-router-dom";
 function FoundPage({ supabase }) {
   const [selectedIcon, setSelectedIcon] = useState("camera");
+  const navigate = useNavigate();
 
   const handleSelect = (icon) => {
     setSelectedIcon(icon);
@@ -96,7 +98,9 @@ function FoundPage({ supabase }) {
             <label htmlFor="INumber">Phone Number</label>
             <div className="icon-container">
               <i className="fa fa-question-circle"></i>
-              <span className="tooltip-text">Enter your 10-digit phone number.</span>
+              <span className="tooltip-text">
+                Enter your 10-digit phone number.
+              </span>
             </div>
           </div>
           <input
@@ -162,6 +166,8 @@ function FoundPage({ supabase }) {
               .select();
             if (error) {
               console.log("error: ", error);
+            } else {
+              navigate("/");
             }
           }}
         >
