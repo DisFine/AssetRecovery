@@ -37,18 +37,18 @@ _NaN_
 git clone https://github.com/yourusername/AssetRecovery.git
 cd AssetRecovery
 ```
-###🔥 Contribution Guidelines
+## 🔥 Contribution Guidelines
 -Fork the repository and create a new branch for your feature.
 -Make the necessary changes and commit them with a meaningful message.
 -Push your changes and create a pull request (PR).
 -Wait for review and merge approval.
 -Check the Issues section for new feature requests or bug reports.
 
-###🤝 Support
+## 🤝 Support
 -If you encounter any issues or have suggestions for improvement, feel free to raise an issue or contact me at your-email@example.com.
 -Let’s help people recover their lost items! 🔍📦
 
-###📜 License
+## 📜 License
 -This project is licensed under the MIT License.
 -This **README.md** is clear, structured, and easy to follow. Let me know if you need any modifications! 🚀🔍
 
