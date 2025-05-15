@@ -1,0 +1,25 @@
+{
+    "theme_color": "#ffffff",
+    "background_color": "#ff0000",
+    "icons": [
+        {
+            "purpose": "maskable",
+            "sizes": "512x512",
+            "src": "icon512_maskable.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "any",
+            "sizes": "512x512",
+            "src": "icon512_rounded.png",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "any",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Asset Recovery",
+    "short_name": "AssetRecovery",
+    "description": "This app is for AssetRecovery"
+}
