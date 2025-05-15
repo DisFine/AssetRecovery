@@ -44,7 +44,7 @@ function SignIn({ supabase }) {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="outerContainer">
+    <div className="outerContainer adjust">
       <div className="innerContainer">
         <h1>Login</h1>
 

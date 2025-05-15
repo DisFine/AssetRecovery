@@ -40,7 +40,7 @@ function SignUp({ supabase }) {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
-    <div className="outerContainer">
+    <div className="outerContainer adjust">
       <div className="innerContainer">
         <h1>Sign Up</h1>
 
