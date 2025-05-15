@@ -38,6 +38,10 @@ body {
   column-gap: 3px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .dot1 {
   height: 14px;
   width: 14px;
@@ -653,6 +657,7 @@ form button:active {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  max-width: 406px;
 }
 
 .itemPageContainer .itemImg {
