@@ -497,8 +497,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 406px;
   justify-content: center;
+  width: 100%;
 }
 
 .innerContainer {
@@ -657,7 +657,6 @@ form button:active {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  max-width: 406px;
 }
 
 .itemPageContainer .itemImg {
@@ -1127,4 +1126,13 @@ a:visited {
 
 .adjust{
   row-gap: 30px;
+}
+
+@media (min-width: 500px) {
+  .outerContainer {
+    max-width: 406px;
+  }
+  .itemPageContainer {
+    max-width: 406px;
+  }
 }
