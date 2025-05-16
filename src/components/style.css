@@ -1131,6 +1131,7 @@ a:visited {
 @media (min-width: 500px) {
   .outerContainer {
     max-width: 406px;
+    justify-content: normal;
   }
   .itemPageContainer {
     max-width: 406px;
