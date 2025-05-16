@@ -25,7 +25,7 @@ function LostItems({ supabase }) {
 
   return (
     <>
-      <div className="outerContainer Adjustment">
+      <div className="outerContainer">
         <div className="LI-Title">LOST ITEMS</div>
         <div className="LI-List">
           {items.map((item, index) => (

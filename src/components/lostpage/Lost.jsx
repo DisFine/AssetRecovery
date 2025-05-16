@@ -47,7 +47,7 @@ function Lost({ supabase }) {
   const [file, setFile] = useState(null);
   return (
     <>
-      <div className="outerContainer Adjustment">
+      <div className="outerContainer">
         <div className="lostTitle">
           Add Lost ‎<span>Item</span>
         </div>

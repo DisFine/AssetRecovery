@@ -7,5 +7,17 @@ self.addEventListener("activate", (e) => {
 });
 
 self.addEventListener("fetch", (e) => {
-  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+  e.respondWith(
+    fetch(e.request)
+      .catch(() => {
+        return caches.match(e.request);
+      })
+      .then((response) => {
+        return response || new Response("Offline and resource not cached", {
+          status: 503,
+          statusText: "Service Unavailable",
+        });
+      })
+  );
 });
+

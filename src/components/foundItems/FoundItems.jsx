@@ -24,7 +24,7 @@ function FoundItems({ supabase }) {
   }, [supabase]);
   return (
     <>
-      <div className="outerContainer Adjustment">
+      <div className="outerContainer">
         <div className="FI-Title">FOUND ITEMS</div>
         <div className="FI-List">
           {items.map((item, index) => (
