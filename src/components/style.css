@@ -976,7 +976,7 @@ a:visited {
 
 .UserOuterContainer .container2 {
   width: 100%;
-  height: calc(var(--vh, 1vh) * 70);
+  height: calc(var(--vh, 1vh) * 75);
 }
 
 .UserOuterContainer .container2 h2 {
