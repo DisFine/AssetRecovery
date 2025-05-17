@@ -107,7 +107,14 @@ function SignUp({ supabase }) {
         </form>
       </div>
       <div className="googleContainer">
-        <div className="loginType">
+        <button
+          className="loginType"
+          onClick={() =>
+            supabase.auth.signInWithOAuth({
+              provider: "google",
+            })
+          }
+        >
           <i>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -136,8 +143,13 @@ function SignUp({ supabase }) {
             </svg>
           </i>
           <p>Login with google</p>
-        </div>
-        <div className="loginType">
+        </button>
+        <button
+          className="loginType"
+          onClick={() => {
+            alert("Something went wrong!");
+          }}
+        >
           <i>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +182,7 @@ function SignUp({ supabase }) {
             </svg>
           </i>
           <p>Login with Microsoft</p>
-        </div>
+        </button>
       </div>
     </div>
   );
