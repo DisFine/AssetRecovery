@@ -1129,6 +1129,9 @@ a:visited {
 }
 
 @media (min-width: 500px) {
+  .UserOuterContainer {
+    max-width: 406px;
+  }
   .outerContainer {
     max-width: 406px;
   }
